@@ -2,41 +2,41 @@ import { useState } from 'react';
 import { Map, Filter, Tag } from 'lucide-react';
 
 const categories = [
-  { id: 'integracion', label: 'Integración tecnológica', color: 'blue', count: 4 },
-  { id: 'servicios', label: 'Servicios industriales', color: 'green', count: 3 },
-  { id: 'ia', label: 'Inteligencia artificial aplicada', color: 'purple', count: 5 },
-  { id: 'automatizacion', label: 'Automatización', color: 'orange', count: 3 },
-  { id: 'ciberseguridad', label: 'Ciberseguridad y cumplimiento', color: 'red', count: 4 },
-  { id: 'formacion', label: 'Formación y capacitación', color: 'teal', count: 3 },
-  { id: 'energia', label: 'Eficiencia y análisis energético', color: 'yellow', count: 3 },
+  { id: 'integracion', label: 'Integración tecnológica', color: 'blue' },
+  { id: 'servicios', label: 'Servicios industriales', color: 'green' },
+  { id: 'ia', label: 'IA aplicada', color: 'purple' },
+  { id: 'automatizacion', label: 'Automatización', color: 'orange' },
+  { id: 'ciberseguridad', label: 'Ciberseguridad', color: 'red' },
+  { id: 'formacion', label: 'Formación', color: 'teal' },
+  { id: 'energia', label: 'Eficiencia energética', color: 'yellow' },
 ];
 
 const opportunities = [
-  { id: 1, title: 'Integración de sistemas SCADA con plataformas cloud', category: 'integracion', priority: 'alta', desc: 'Conexión de sistemas de control industrial con plataformas de monitorización en la nube.' },
-  { id: 2, title: 'Migración de infraestructura legacy a contenedores', category: 'integracion', priority: 'media', desc: 'Modernización de aplicaciones industriales mediante containerización.' },
-  { id: 3, title: 'Interoperabilidad entre sistemas OT e IT', category: 'integracion', priority: 'alta', desc: 'Puente de comunicación entre redes operativas y corporativas.' },
-  { id: 4, title: 'API Gateway para servicios industriales', category: 'integracion', priority: 'media', desc: 'Capa de gestión de APIs para servicios de planta.' },
-  { id: 5, title: 'Mantenimiento predictivo de equipos críticos', category: 'servicios', priority: 'alta', desc: 'Servicio de monitorización y predicción de fallos en maquinaria industrial.' },
-  { id: 6, title: 'Inspección remota con drones', category: 'servicios', priority: 'media', desc: 'Servicio de inspección visual automatizada de infraestructuras.' },
-  { id: 7, title: 'Gestión de activos industriales (EAM)', category: 'servicios', priority: 'baja', desc: 'Plataforma de gestión del ciclo de vida de activos.' },
-  { id: 8, title: 'Procesamiento inteligente de documentación técnica', category: 'ia', priority: 'alta', desc: 'Extracción y clasificación de datos de documentos industriales.' },
-  { id: 9, title: 'Análisis de calidad con visión artificial', category: 'ia', priority: 'alta', desc: 'Detección automatizada de defectos en líneas de producción.' },
-  { id: 10, title: 'Optimización de rutas logísticas con ML', category: 'ia', priority: 'media', desc: 'Algoritmos de optimización para distribución industrial.' },
-  { id: 11, title: 'Asistente virtual para operadores', category: 'ia', priority: 'media', desc: 'Sistema de soporte decisional basado en LLM para personal técnico.' },
-  { id: 12, title: 'Predicción de demanda energética', category: 'ia', priority: 'alta', desc: 'Modelos de forecasting para gestión de consumo.' },
-  { id: 13, title: 'Control automatizado de climatización industrial', category: 'automatizacion', priority: 'media', desc: 'Sistema de regulación inteligente de condiciones ambientales.' },
-  { id: 14, title: 'Robotización de tareas repetitivas en almacén', category: 'automatizacion', priority: 'alta', desc: 'Automatización de picking y clasificación.' },
-  { id: 15, title: 'PLC programming y HMI modernization', category: 'automatizacion', priority: 'baja', desc: 'Actualización de lógica de control y interfaces de operador.' },
-  { id: 16, title: 'Auditoría de seguridad OT (IEC 62443)', category: 'ciberseguridad', priority: 'alta', desc: 'Evaluación de cumplimiento del estándar de ciberseguridad industrial.' },
-  { id: 17, title: 'Segmentación de redes industriales', category: 'ciberseguridad', priority: 'alta', desc: 'Diseño e implementación de zonas de seguridad.' },
-  { id: 18, title: 'Gestión de identidades y accesos (IAM)', category: 'ciberseguridad', priority: 'media', desc: 'Sistema centralizado de autenticación y autorización.' },
-  { id: 19, title: 'Cumplimiento normativo RGPD/ENS', category: 'ciberseguridad', priority: 'alta', desc: 'Adaptación a requisitos regulatorios de protección de datos.' },
-  { id: 20, title: 'Programa de certificación en IA industrial', category: 'formacion', priority: 'media', desc: 'Formación especializada para técnicos en aplicaciones de IA.' },
-  { id: 21, title: 'Capacitación en ciberseguridad OT', category: 'formacion', priority: 'alta', desc: 'Programa de concienciación y habilidades para personal industrial.' },
-  { id: 22, title: 'Academia de automatización y robótica', category: 'formacion', priority: 'baja', desc: 'Formación práctica en sistemas de automatización.' },
-  { id: 23, title: 'Auditoría energética de instalaciones', category: 'energia', priority: 'alta', desc: 'Análisis de eficiencia y propuesta de mejoras.' },
-  { id: 24, title: 'Monitorización de consumo en tiempo real', category: 'energia', priority: 'media', desc: 'Sistema IoT para tracking energético.' },
-  { id: 25, title: 'Estudio de viabilidad fotovoltaica', category: 'energia', priority: 'media', desc: 'Análisis de potencial de generación renovable in-situ.' },
+  { id: 1, title: 'Integración SCADA–cloud', category: 'integracion', priority: 'alta' },
+  { id: 2, title: 'Migración legacy a contenedores', category: 'integracion', priority: 'media' },
+  { id: 3, title: 'Interoperabilidad OT/IT', category: 'integracion', priority: 'alta' },
+  { id: 4, title: 'API Gateway industrial', category: 'integracion', priority: 'media' },
+  { id: 5, title: 'Mantenimiento predictivo', category: 'servicios', priority: 'alta' },
+  { id: 6, title: 'Inspección remota con drones', category: 'servicios', priority: 'media' },
+  { id: 7, title: 'Gestión de activos (EAM)', category: 'servicios', priority: 'baja' },
+  { id: 8, title: 'Procesamiento documental técnico', category: 'ia', priority: 'alta' },
+  { id: 9, title: 'Control de calidad por visión', category: 'ia', priority: 'alta' },
+  { id: 10, title: 'Optimización logística ML', category: 'ia', priority: 'media' },
+  { id: 11, title: 'Asistente virtual operadores', category: 'ia', priority: 'media' },
+  { id: 12, title: 'Predicción demanda energética', category: 'ia', priority: 'alta' },
+  { id: 13, title: 'Climatización industrial automática', category: 'automatizacion', priority: 'media' },
+  { id: 14, title: 'Robotización almacén', category: 'automatizacion', priority: 'alta' },
+  { id: 15, title: 'PLC / HMI modernization', category: 'automatizacion', priority: 'baja' },
+  { id: 16, title: 'Auditoría IEC 62443', category: 'ciberseguridad', priority: 'alta' },
+  { id: 17, title: 'Segmentación redes OT', category: 'ciberseguridad', priority: 'alta' },
+  { id: 18, title: 'IAM industrial', category: 'ciberseguridad', priority: 'media' },
+  { id: 19, title: 'Cumplimiento RGPD/ENS', category: 'ciberseguridad', priority: 'alta' },
+  { id: 20, title: 'Certificación IA industrial', category: 'formacion', priority: 'media' },
+  { id: 21, title: 'Capacitación ciberseguridad OT', category: 'formacion', priority: 'alta' },
+  { id: 22, title: 'Academia automatización', category: 'formacion', priority: 'baja' },
+  { id: 23, title: 'Auditoría energética', category: 'energia', priority: 'alta' },
+  { id: 24, title: 'Monitorización consumo IoT', category: 'energia', priority: 'media' },
+  { id: 25, title: 'Viabilidad fotovoltaica', category: 'energia', priority: 'media' },
 ];
 
 const colorMap: Record<string, string> = {
@@ -61,35 +61,27 @@ export default function Module2Opportunities() {
 
   const filtered = opportunities.filter(opp => {
     const matchCategory = !selectedCategory || opp.category === selectedCategory;
-    const matchSearch = !searchTerm || opp.title.toLowerCase().includes(searchTerm.toLowerCase()) || opp.desc.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchSearch = !searchTerm || opp.title.toLowerCase().includes(searchTerm.toLowerCase());
     return matchCategory && matchSearch;
   });
 
   return (
     <div className="space-y-6">
       <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-        <h2 className="text-2xl font-bold text-slate-800 mb-2 flex items-center gap-2">
+        <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-2">
           <Map className="w-7 h-7 text-blue-600" />
-          Módulo 2 — Mapa de Oportunidades
+          Mapa de oportunidades
         </h2>
-        <p className="text-slate-600 mb-4">
-          Clasificación de posibles áreas de colaboración en el ecosistema de integradores tecnológicos.
-          Todos los ejemplos son <span className="demo-badge">DEMO</span> y no representan contratos reales.
-        </p>
 
-        {/* Search */}
-        <div className="mb-4">
-          <input
-            type="text"
-            placeholder="Buscar oportunidades..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm"
-            aria-label="Buscar oportunidades"
-          />
-        </div>
+        <input
+          type="text"
+          placeholder="Buscar..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 text-sm mb-4"
+          aria-label="Buscar"
+        />
 
-        {/* Category filters */}
         <div className="flex flex-wrap gap-2 mb-6">
           <button
             onClick={() => setSelectedCategory(null)}
@@ -112,19 +104,14 @@ export default function Module2Opportunities() {
           ))}
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+        <div className="grid grid-cols-3 gap-3 mb-6">
           <div className="bg-blue-50 rounded-lg p-3 text-center border border-blue-100">
             <p className="text-2xl font-bold text-blue-700">{filtered.length}</p>
-            <p className="text-xs text-blue-600">Oportunidades visibles</p>
+            <p className="text-xs text-blue-600">Total</p>
           </div>
           <div className="bg-red-50 rounded-lg p-3 text-center border border-red-100">
             <p className="text-2xl font-bold text-red-700">{filtered.filter(o => o.priority === 'alta').length}</p>
-            <p className="text-xs text-red-600">Prioridad alta</p>
-          </div>
-          <div className="bg-yellow-50 rounded-lg p-3 text-center border border-yellow-100">
-            <p className="text-2xl font-bold text-yellow-700">{filtered.filter(o => o.priority === 'media').length}</p>
-            <p className="text-xs text-yellow-600">Prioridad media</p>
+            <p className="text-xs text-red-600">Alta</p>
           </div>
           <div className="bg-green-50 rounded-lg p-3 text-center border border-green-100">
             <p className="text-2xl font-bold text-green-700">{categories.length}</p>
@@ -132,39 +119,28 @@ export default function Module2Opportunities() {
           </div>
         </div>
 
-        {/* Opportunities list */}
-        <div className="space-y-3">
+        <div className="space-y-2">
           {filtered.map(opp => {
             const cat = categories.find(c => c.id === opp.category);
             return (
-              <div key={opp.id} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow bg-white">
-                <div className="flex items-start justify-between gap-3">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-1">
-                      <h4 className="text-sm font-semibold text-slate-800">{opp.title}</h4>
-                      <span className="demo-badge">DEMO</span>
-                    </div>
-                    <p className="text-xs text-slate-500 mb-2">{opp.desc}</p>
-                    <div className="flex items-center gap-2">
-                      {cat && (
-                        <span className={`text-xs px-2 py-0.5 rounded border ${colorMap[cat.color]}`}>
-                          {cat.label}
-                        </span>
-                      )}
-                      <span className={`text-xs px-2 py-0.5 rounded ${priorityColors[opp.priority]}`}>
-                        Prioridad: {opp.priority}
-                      </span>
-                    </div>
-                  </div>
+              <div key={opp.id} className="flex items-center justify-between border border-gray-200 rounded-lg p-3 hover:bg-gray-50 transition-colors">
+                <div className="flex items-center gap-3">
+                  <span className="text-xs font-mono text-slate-400 w-6">#{opp.id}</span>
+                  <span className="text-sm font-medium text-slate-800">{opp.title}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  {cat && (
+                    <span className={`text-xs px-2 py-0.5 rounded border hidden md:inline-block ${colorMap[cat.color]}`}>
+                      {cat.label}
+                    </span>
+                  )}
+                  <span className={`text-xs px-2 py-0.5 rounded ${priorityColors[opp.priority]}`}>
+                    {opp.priority}
+                  </span>
                 </div>
               </div>
             );
           })}
-          {filtered.length === 0 && (
-            <div className="text-center py-8 text-slate-400">
-              <p>No se encontraron oportunidades con los filtros seleccionados.</p>
-            </div>
-          )}
         </div>
       </div>
     </div>
