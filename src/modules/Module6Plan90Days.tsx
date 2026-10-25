@@ -6,86 +6,40 @@ const phases = [
     days: '1–15',
     title: 'Validación de interés y alcance',
     color: 'blue',
-    deliverables: [
-      'Documento de alcance preliminar',
-      'Identificación de interlocutores',
-      'Acuerdo de confidencialidad (si procede)',
-      'Criterios de éxito iniciales',
-    ],
-    acceptance: [
-      'Firma de acuerdo de confidencialidad',
-      'Documento de alcance aprobado por ambas partes',
-      'Calendario de reuniones quincenal acordado',
-    ],
+    deliverables: ['Documento de alcance', 'Identificación de interlocutores', 'Acuerdo de confidencialidad', 'Criterios de éxito'],
+    acceptance: ['NDA firmado', 'Alcance aprobado', 'Calendario acordado'],
   },
   {
     id: 2,
     days: '16–30',
     title: 'Mapa de necesidades e integradores',
     color: 'green',
-    deliverables: [
-      'Mapa de necesidades del ecosistema',
-      'Listado preliminar de integradores',
-      'Matriz de capacidades vs. necesidades',
-      'Informe de oportunidades priorizadas',
-    ],
-    acceptance: [
-      'Mapa validado con al menos 3 fuentes',
-      'Mínimo 10 integradores identificados',
-      'Criterios de priorización acordados',
-    ],
+    deliverables: ['Mapa de necesidades', 'Listado de integradores', 'Matriz capacidades vs necesidades', 'Informe priorizado'],
+    acceptance: ['Mapa con 3+ fuentes', '10+ integradores', 'Criterios acordados'],
   },
   {
     id: 3,
     days: '31–60',
-    title: 'Hasta dos demostradores autorizados',
+    title: 'Demostradores autorizados',
     color: 'purple',
-    deliverables: [
-      'Especificaciones técnicas de demostradores',
-      'Entorno de pruebas configurado',
-      'Resultados preliminares documentados',
-      'Informe de viabilidad técnica',
-    ],
-    acceptance: [
-      'Autorización formal para cada demostrador',
-      'Entorno aislado y seguro',
-      'Métricas de evaluación definidas antes de iniciar',
-      'Resultados reproducibles y documentados',
-    ],
+    deliverables: ['Especificaciones técnicas', 'Entorno configurado', 'Resultados documentados', 'Informe de viabilidad'],
+    acceptance: ['Autorización formal', 'Entorno aislado', 'Métricas definidas'],
   },
   {
     id: 4,
     days: '61–75',
-    title: 'Análisis de viabilidad y riesgos',
+    title: 'Viabilidad y riesgos',
     color: 'orange',
-    deliverables: [
-      'Análisis DAFO del ecosistema',
-      'Matriz de riesgos y mitigaciones',
-      'Modelo económico preliminar',
-      'Requisitos regulatorios identificados',
-    ],
-    acceptance: [
-      'Riesgos clasificados por probabilidad e impacto',
-      'Mitigaciones propuestas para riesgos críticos',
-      'Modelo económico revisado por equipo financiero',
-    ],
+    deliverables: ['Análisis DAFO', 'Matriz de riesgos', 'Modelo económico', 'Requisitos regulatorios'],
+    acceptance: ['Riesgos clasificados', 'Mitigaciones propuestas', 'Modelo revisado'],
   },
   {
     id: 5,
     days: '76–90',
-    title: 'Dossier ejecutivo y decisión',
+    title: 'Dossier ejecutivo',
     color: 'red',
-    deliverables: [
-      'Dossier ejecutivo completo',
-      'Recomendación de continuación o no',
-      'Propuesta de fases siguientes (si aplica)',
-      'Lecciones aprendidas documentadas',
-    ],
-    acceptance: [
-      'Dossier presentado a stakeholders',
-      'Decisión formal documentada',
-      'Plan de transición o cierre acordado',
-    ],
+    deliverables: ['Dossier completo', 'Recomendación', 'Propuesta de fases siguientes', 'Lecciones aprendidas'],
+    acceptance: ['Presentación a stakeholders', 'Decisión documentada', 'Plan acordado'],
   },
 ];
 
@@ -101,16 +55,12 @@ export default function Module6Plan90Days() {
   return (
     <div className="space-y-6">
       <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-        <h2 className="text-2xl font-bold text-slate-800 mb-2 flex items-center gap-2">
+        <h2 className="text-2xl font-bold text-slate-800 mb-4 flex items-center gap-2">
           <Calendar className="w-7 h-7 text-blue-600" />
-          Módulo 6 — Plan de 90 Días
+          Plan de 90 días
         </h2>
-        <p className="text-slate-600 mb-6">
-          Cronograma estructurado en 5 fases con entregables y criterios de aceptación definidos.
-        </p>
 
-        {/* Timeline visual */}
-        <div className="relative mb-8">
+        <div className="relative">
           <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200" />
           <div className="space-y-4">
             {phases.map((phase) => {
@@ -118,12 +68,12 @@ export default function Module6Plan90Days() {
               return (
                 <div key={phase.id} className="relative pl-10">
                   <div className={`absolute left-2 w-5 h-5 rounded-full ${colors.badge} border-2 border-white shadow`} />
-                  <div className={`${colors.bg} border ${colors.border} rounded-xl p-5`}>
+                  <div className={`${colors.bg} border ${colors.border} rounded-xl p-4`}>
                     <div className="flex items-center gap-3 mb-3">
                       <span className={`px-2 py-0.5 rounded text-xs font-bold text-white ${colors.badge}`}>
                         Días {phase.days}
                       </span>
-                      <h3 className={`text-lg font-bold ${colors.text}`}>{phase.title}</h3>
+                      <h3 className={`text-base font-bold ${colors.text}`}>{phase.title}</h3>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4">
@@ -142,7 +92,7 @@ export default function Module6Plan90Days() {
                       </div>
                       <div>
                         <h4 className="text-xs font-bold text-slate-500 uppercase tracking-wide mb-2 flex items-center gap-1">
-                          <AlertCircle className="w-3 h-3" /> Criterios de aceptación
+                          <AlertCircle className="w-3 h-3" /> Criterios
                         </h4>
                         <ul className="space-y-1">
                           {phase.acceptance.map((a, i) => (
